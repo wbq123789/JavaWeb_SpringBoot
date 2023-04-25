@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+    <title>添加图书——图书管理系统</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link th:href="@{/static/picture/icon.png}" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/fonts.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/icofont.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}">
+	<link rel="stylesheet" id="theme-change" type="text/css" href="">
+</head>
+
+<body>
+	<div class="loader">
+	  <div class="spinner">
+		<img th:src="@{/static/picture/loader.gif}" alt="">
+	  </div> 
+	</div>
+    <!-- Main Body -->
+    <div class="page-wrapper">
+        <!-- Header Start -->
+        <div th:replace="template.html::title"></div>
+        <div th:replace="template.html::aside"></div>
+        <!-- Container Start -->
+        <div class="page-wrapper">
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>录入书籍信息</h3>
+                                <br>
+                                <h5 class="card-desc">请填写待录入书籍的<code>标题</code>、<code>介绍</code>以及<code>价格</code></h5>
+                            </div>
+                            <div class="card-body">
+                                <form class="separate-form" method="post" th:action="@{/api/admin/add-book}">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="book-title" class="col-form-label">书籍标题</label>
+                                                    <input class="form-control" type="text" placeholder="请输入书籍标题" id="book-title" name="title">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="book-desc" class="col-form-label">书籍介绍</label>
+                                                    <input class="form-control" type="text" placeholder="请输入书籍简介" id="book-desc" name="desc">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="book-price" class="col-form-label">书籍价格(元)</label>
+                                                    <input class="form-control" type="text" placeholder="请输入书籍价格" id="book-price" name="price">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="mt-4 mb-4">
+                                        <div class="form-group mb-0">
+                                            <button class="btn btn-primary" type="submit">提交</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Start -->
+	<script th:src="@{/static/js/jquery.min.js}"></script>
+    <script th:src="@{/static/js/popper.min.js}"></script>
+    <script th:src="@{/static/js/bootstrap.min.js}"></script>
+	<script th:src="@{/static/js/swiper.min.js}"></script>
+    <script th:src="@{/static/js/apexcharts.min.js}"></script>
+    <script th:src="@{/static/js/control-chart-apexcharts.js}"></script>
+	<!-- Page Specific -->
+    <script th:src="@{/static/js/nice-select.min.js}"></script>
+    <!-- Custom Script -->
+    <script th:src="@{/static/js/custom.js}"></script>
+</body>
+
+</html>
