@@ -1,8 +1,12 @@
 spring:
   profiles:
     active: '@environment@'
+  mail:
+    host: your email-host
+    username: your email
+    password: your password
   redis:
     database: 0
-    host: 192.168.0.113
+    host: your redis-host
     port: 6379
-    password: wbq123
+    password: your redis-pwd

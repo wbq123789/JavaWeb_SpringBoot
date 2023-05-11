@@ -1,7 +1,6 @@
 package com.example.service;
 
 import com.example.mapper.MainMapper;
-import com.example.mapper.UserMapper;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,8 +1,9 @@
 package com.example.mapper;
 
+import com.example.cache.MybatisRedisCache;
 import com.example.entity.User;
 import org.apache.ibatis.annotations.*;
-
+@CacheNamespace(implementation = MybatisRedisCache.class)
 @Mapper
 public interface UserMapper {
     @Select("select * from users where name = #{username}")

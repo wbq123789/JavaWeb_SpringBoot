@@ -1,5 +1,6 @@
 package com.example.mapper;
 
+import com.example.cache.MybatisRedisCache;
 import com.example.entity.Book;
 import com.example.entity.Borrow;
 import com.example.entity.BorrowDetails;
@@ -7,6 +8,7 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+@CacheNamespace(implementation = MybatisRedisCache.class)
 @Mapper
 public interface BookMapper {
     @Select("select * from book")
