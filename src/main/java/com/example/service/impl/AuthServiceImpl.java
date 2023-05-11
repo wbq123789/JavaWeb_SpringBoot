@@ -16,13 +16,16 @@ public class AuthServiceImpl implements AuthService {
 
     @Transactional
     @Override
-    public void register(String username, String sex, String grade, String password) {
+    public boolean register(String username, String sex, String grade, String password) {
         BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
         User user=new User(0,username,"user",encoder.encode(password));
         if(mapper.registerUser(user)<=0)
-            throw new RuntimeException("用户基本信息添加失败！");
+            return false;
+            //throw new RuntimeException("用户基本信息添加失败！");
         if (mapper.addStudentInfo(user.getId(),username,sex,grade)<=0)
-            throw new RuntimeException("学生详细信息插入失败！");
+            return false;
+            //throw new RuntimeException("学生详细信息插入失败！");
+        return true;
     }
 
     @Override

@@ -43,7 +43,7 @@ public class SecurityConfiguration {
     SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeRequests()   //首先需要配置哪些请求会被拦截，哪些请求必须具有什么角色才能访问
-                .antMatchers("/static/**","/page/auth/**","/api/auth/**").permitAll()    //静态资源，使用permitAll来运行任何人访问（注意一定要放在前面）
+                .antMatchers("/static/**","/page/auth/**","/api/auth/**","/api/register/**").permitAll()    //静态资源，使用permitAll来运行任何人访问（注意一定要放在前面）
                 .antMatchers("/page/user/**","/api/user/**").hasRole("user")
                 .antMatchers("/page/admin/**","api/admin/**").hasRole("admin")
                 .anyRequest()
